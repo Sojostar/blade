@@ -17,8 +17,9 @@ use App\Models\generico\Parroquia;
 use App\Models\generico\Sectores;
 use App\Models\generico\Sexo;
 use App\Models\generico\TipoIdentificacion;
+use App\Models\unidades\TipoUnidad;
 
-class DominanciaSeeder extends Seeder
+class InicialSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -63,6 +64,14 @@ class DominanciaSeeder extends Seeder
             EstadoCivil::create($estado_civil);
         }
 
+        $paises = [
+            ['nombre_pais' => 'Venezuela'],
+        ];
+
+        foreach ($paises as $pais) {
+            Pais::create($pais);
+        }
+
         $estados = [
             ['nombre_estado' => 'Amazonas', 'nombre_bandera' => 'amazonas', 'pais_id_id' => 1],
             ['nombre_estado' => 'Anzoátegui', 'nombre_bandera' => 'anzoategui', 'pais_id_id' => 1],
@@ -96,15 +105,16 @@ class DominanciaSeeder extends Seeder
         }
 
         $monedas = [
-            ['nombre_moneda' => 'VES'],
-            ['nombre_moneda' => 'USD'],
+            ['nombre_monedas' => 'VES'],
+            ['nombre_monedas' => 'USD'],
         ];
 
         foreach ($monedas as $moneda) {
-            Monedas::create($estado);
+            Monedas::create($moneda);
         }
 
         $municipios = [
+            
             ['nombre_municipio' => 'Alto Orinoco', 'estado_id_id' => 1],
             ['nombre_municipio' => 'Atabapo', 'estado_id_id' => 1],
             ['nombre_municipio' => 'Atures', 'estado_id_id' => 1],
@@ -440,6 +450,7 @@ class DominanciaSeeder extends Seeder
             ['nombre_municipio' => 'Sucre', 'estado_id_id' => 23],
             ['nombre_municipio' => 'Valmore Rodríguez', 'estado_id_id' => 23],
             ['nombre_municipio' => 'Libertador', 'estado_id_id' => 24],
+            
         ];
 
         foreach ($municipios as $municipio) {
@@ -470,15 +481,8 @@ class DominanciaSeeder extends Seeder
             NivelInstruccion::create($nivel_instruccion);
         }
 
-        $paises = [
-            ['nombre_pais' => 'Venezuela'],
-        ];
-
-        foreach ($paises as $pais) {
-            Pais::create($pais);
-        }
-
         $parroquias = [
+            /*
             ['nombre_parroquia' => 'Alto Orinoco', 'municipio_id_id' => 1],
             ['nombre_parroquia' => 'Huachamacare Acanaña', 'municipio_id_id' => 1],
             ['nombre_parroquia' => 'Marawaka Toky Shamanaña', 'municipio_id_id' => 1],
@@ -1618,6 +1622,7 @@ class DominanciaSeeder extends Seeder
             ['nombre_parroquia' => 'Sucre (Catia)', 'municipio_id_id' => 462],
             ['nombre_parroquia' => '23 de enero', 'municipio_id_id' => 462],
             ['nombre_parroquia' => 'Baruta', 'municipio_id_id' => 225],
+            */
         ];
 
         foreach ($parroquias as $parroquia) {
@@ -1625,6 +1630,7 @@ class DominanciaSeeder extends Seeder
         }
 
         $sectores = [
+            /*
             ['nombre_sector' => 'Barrio Andrés Eloy Blanco', 'parroquia_id_id' => 1138],
             ['nombre_sector' => 'Barrio Camboya', 'parroquia_id_id' => 1138],
             ['nombre_sector' => 'Barrio Cristo Rey', 'parroquia_id_id' => 1138],
@@ -7795,6 +7801,7 @@ class DominanciaSeeder extends Seeder
             ['nombre_sector' => 'Sector El Francés', 'parroquia_id_id' => 455],
             ['nombre_sector' => 'Sector Candilorio', 'parroquia_id_id' => 455],
             ['nombre_sector' => 'Sector Baulito', 'parroquia_id_id' => 455],
+            */
         ];
 
         foreach ($sectores as $sector) {
@@ -7820,6 +7827,26 @@ class DominanciaSeeder extends Seeder
 
         foreach ($tipo_identificaciones as $tipo_identificacion) {
             TipoIdentificacion::create($tipo_identificacion);
+        }
+
+        $tipo_unidades = [
+            ['nombre_tipo_unidad' => 'Habitacional'],
+            ['nombre_tipo_unidad' => 'Comercial'],
+            ['nombre_tipo_unidad' => 'Mixta'],
+        ];
+
+        foreach ($tipo_unidades as $tipo_unidades) {
+            TipoUnidad::create($tipo_unidades);
+        }
+
+        $estado_unidades = [
+            ['nombre_estado_unidad' => 'Habitacional'],
+            ['nombre_estado_unidad' => 'Comercial'],
+            ['nombre_estado_unidad' => 'Mixta'],
+        ];
+
+        foreach ($estado_unidades as $estado_unidad) {
+            EstadoUnidad::create($estado_unidad);
         }
     }
 }

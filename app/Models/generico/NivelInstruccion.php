@@ -5,7 +5,7 @@ namespace App\Models\generico;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NiveoInstruccion extends Model
+class NivelInstruccion extends Model
 {
     use HasFactory;
     protected $table = 'generico.nivel_instruccion';
