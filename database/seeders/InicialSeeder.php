@@ -7840,9 +7840,8 @@ class InicialSeeder extends Seeder
         }
 
         $estado_unidades = [
-            ['nombre_estado_unidad' => 'Habitacional'],
-            ['nombre_estado_unidad' => 'Comercial'],
-            ['nombre_estado_unidad' => 'Mixta'],
+            ['nombre_estado_unidad' => 'HABITADA'],
+            ['nombre_estado_unidad' => 'NO HABITADA'],
         ];
 
         foreach ($estado_unidades as $estado_unidad) {
