@@ -29,7 +29,7 @@ return new class extends Migration
             $table->bigIncrements('estado_id');
             $table->string('nombre_estado');
             $table->string('nombre_bandera');
-            $table->numeric('pais_id_id');
+            $table->integer('pais_id_id');
             $table->timestamps();
         });
 
@@ -51,7 +51,7 @@ return new class extends Migration
         Schema::create('generico.municipio', function (Blueprint $table) {
             $table->bigIncrements('municipio_id');
             $table->string('nombre_municipio');
-            $table->numeric('estado_id_id');
+            $table->integer('estado_id_id');
             $table->timestamps();
         });
 
@@ -80,7 +80,7 @@ return new class extends Migration
         Schema::create('generico.parroquia', function (Blueprint $table) {
             $table->bigIncrements('parroquia_id');
             $table->string('nombre_parroquia');
-            $table->numeric('municipio_id_id');
+            $table->integer('municipio_id_id');
             $table->timestamps();
         });
 
@@ -88,7 +88,7 @@ return new class extends Migration
         Schema::create('generico.sectores', function (Blueprint $table) {
             $table->bigIncrements('sectores_id');
             $table->string('nombre_sectores');
-            $table->numeric('parroquia_id_id');
+            $table->integer('parroquia_id_id');
             $table->timestamps();
         });
 

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class NiveoInstruccion extends Model
 {
     use HasFactory;
+    protected $table = 'generico.nivel_instruccion';
+    protected $primaryKey = 'nivel_instruccion_id';
+
+    protected $fillable = [
+        'nombre_nivel_instruccion',
+    ];
 }

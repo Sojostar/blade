@@ -15,5 +15,4 @@ class Discapacidad extends Model
         'nombre_discapacidad',
     ];
 
-
 }

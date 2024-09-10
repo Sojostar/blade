@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Sexo extends Model
 {
     use HasFactory;
+    protected $table = 'generico.sexo';
+    protected $primaryKey = 'sexo_id';
+
+    protected $fillable = [
+        'nombre_sexo',
+    ];
 }
