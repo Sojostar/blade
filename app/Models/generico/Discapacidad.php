@@ -9,4 +9,10 @@ class Discapacidad extends Model
 {
     use HasFactory;
     protected $table = 'generico.discapacidad';
+
+    protected $fillable = [
+        'nombre_discapacidad',
+    ];
+
+
 }
