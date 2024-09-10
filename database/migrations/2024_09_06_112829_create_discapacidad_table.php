@@ -16,6 +16,97 @@ return new class extends Migration
             $table->string('nombre_discapacidad');
             $table->timestamps();
         });
+
+
+        Schema::create('generico.dominancia', function (Blueprint $table) {
+            $table->bigIncrements('dominancia_id');
+            $table->string('nombre_dominancia');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.estado', function (Blueprint $table) {
+            $table->bigIncrements('estado_id');
+            $table->string('nombre_estado');
+            $table->string('nombre_bandera');
+            $table->numeric('pais_id_id');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.estado_civil', function (Blueprint $table) {
+            $table->bigIncrements('estado_civil_id');
+            $table->string('nombre_estado_civil');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.monedas', function (Blueprint $table) {
+            $table->bigIncrements('monedas_id');
+            $table->string('nombre_monedas');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.municipio', function (Blueprint $table) {
+            $table->bigIncrements('municipio_id');
+            $table->string('nombre_municipio');
+            $table->numeric('estado_id_id');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.nacionalidad', function (Blueprint $table) {
+            $table->bigIncrements('nacionalidad_id');
+            $table->string('nombre_nacionalidad');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.nivel_instruccion', function (Blueprint $table) {
+            $table->bigIncrements('nivel_instruccion_id');
+            $table->string('nombre_nivel_instruccion');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.pais', function (Blueprint $table) {
+            $table->bigIncrements('pais_id');
+            $table->string('nombre_pais');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.parroquia', function (Blueprint $table) {
+            $table->bigIncrements('parroquia_id');
+            $table->string('nombre_parroquia');
+            $table->numeric('municipio_id_id');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.sectores', function (Blueprint $table) {
+            $table->bigIncrements('sectores_id');
+            $table->string('nombre_sectores');
+            $table->numeric('parroquia_id_id');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.sexo', function (Blueprint $table) {
+            $table->bigIncrements('discapacidad_id');
+            $table->string('nombre_discapacidad');
+            $table->timestamps();
+        });
+
+
+        Schema::create('generico.tipo_identificacion', function (Blueprint $table) {
+            $table->bigIncrements('tipo_identificacion_id');
+            $table->string('nombre_tipo_identificacion');
+            $table->timestamps();
+        });
+
+
     }
 
     /**
