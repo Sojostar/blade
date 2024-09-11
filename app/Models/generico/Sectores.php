@@ -4,6 +4,7 @@ namespace App\Models\generico;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Sectores extends Model
 {
@@ -16,8 +17,8 @@ class Sectores extends Model
         'parroquia_id_id',
     ];
 
-    public function parroquias()
+    public function parroquias(): BelongsTo
     {
-        return $this->belongsTo('App\Models\generico\Parroquias');
+        return $this->belongsTo('App\Models\generico\Parroquias','municipio_id_id');
     }
 }

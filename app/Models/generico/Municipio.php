@@ -4,6 +4,7 @@ namespace App\Models\generico;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Municipio extends Model
 {
@@ -16,8 +17,8 @@ class Municipio extends Model
         'estado_id_id',
     ];
 
-    public function estados()
+    public function estados(): BelongsTo
     {
-        return $this->belongsTo('App\Models\generico\Estado');
+        return $this->belongsTo('App\Models\generico\Estado','estado_id_id');
     }
 }
