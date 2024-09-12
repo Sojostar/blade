@@ -15,10 +15,17 @@ class UnidadController extends Controller
     {
         $unidad = Unidad::with(['unidad_tipo'])->get();
         //print($unidad);
-        \Log::info(compact('unidad'));
+        //\Log::info(compact('unidad'));
         //print_r(compact('unidad'));
         //exit(0);
-            return view('unidad.index', compact('unidad'));
+            //return view('unidad.index', compact('unidad'));
+
+        $action_icons = [
+        "icon:chat-bubble-bottom-center-text | tip:send message | color:green | click:sendMessage('hola','bebe')",
+        //"icon:pencil | click:redirect('/user/{unidad.unidad_id}')",
+        //"icon:trash | color:red | click:deleteUser({unidad.unidad_id}, '{unidad.unidad_id}')",
+        ];
+            return view('unidad.index', ['unidad' => $unidad, 'action_icons'=>$action_icons ] );
 
 
     }

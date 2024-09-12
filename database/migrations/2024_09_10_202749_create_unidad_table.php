@@ -59,6 +59,16 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('unidad_id')->references('unidad_id')->on('unidades.unidad')->onDelete('cascade')->onUpdate('cascade');
         });
+
+        Schema::create('unidades.relacion_unidad_usuario', function (Blueprint $table) {
+            $table->uuid('relacion_unidad_usuario_id')->primary();
+            $table->uuid('unidad_id');
+            $table->integer('usuario_id');
+            $table->timestamps();
+            $table->unique(['unidad_id','usuario_id']);
+            $table->foreign('unidad_id')->references('unidad_id')->on('unidades.unidad')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('usuario_id')->references('id')->on('public.users')->onDelete('cascade')->onUpdate('cascade');
+        });
         */
     }
 
