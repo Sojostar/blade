@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -45,8 +46,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function profile()
+    public function relacion_unidad_usuario(): BelongsToMany
     {
-        return $this->hasOne(Profile::class);
+        return $this->belongsToMany('App\Models\unidades\Unidad','unidades.relacion_unidad_usuario','usuario_id','unidad_id');
     }
+
 }

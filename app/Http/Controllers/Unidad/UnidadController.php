@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Unidad;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\unidades\Unidad;
+use App\Models\User;
 
 class UnidadController extends Controller
 {
@@ -19,6 +20,13 @@ class UnidadController extends Controller
         //print_r(compact('unidad'));
         //exit(0);
             //return view('unidad.index', compact('unidad'));
+
+        $user = User::find(1);
+        $unidadesDelUsuario = $user->relacion_unidad_usuario;
+
+        //print($user);
+        print($unidadesDelUsuario);
+        exit(0);
 
         $action_icons = [
         "icon:chat-bubble-bottom-center-text | tip:send message | color:green | click:sendMessage('hola','bebe')",

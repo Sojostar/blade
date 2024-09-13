@@ -5,6 +5,7 @@ namespace App\Models\unidades;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Unidad extends Model
@@ -66,5 +67,10 @@ class Unidad extends Model
     public function estado_unidad(): BelongsTo
     {
         return $this->belongsTo('App\Models\generico\EstadoUnidad','unidad_estado_id');
+    }
+
+    public function relacion_unidad_usuario(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\User','unidades.relacion_unidad_usuario','usuario_id','unidad_id');
     }
 }
