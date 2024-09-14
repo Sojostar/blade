@@ -124,7 +124,6 @@ return new class extends Migration
             $table->string('detalle_incidencia_descripcion');
             $table->string('detalle_incidencia_comentario');
             $table->integer('estado_detalle_incidencia_id');
-            $table->integer('tipo_detalle_incidencia_id');
             $table->date('detalle_incidencia_fecha_inicio');
             $table->time('detalle_incidencia_hora_inicio', precision: 0);
             $table->date('detalle_incidencia_fecha_fin');
@@ -136,7 +135,6 @@ return new class extends Migration
             $table->foreign('incidencia_id')->references('incidencia_id')->on('logistica.incidencia')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('tipo_elemento_id')->references('tipo_elemento_id')->on('logistica.tipo_elemento')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('estado_detalle_incidencia_id')->references('estado_detalle_incidencia_id')->on('logistica.estado_detalle_incidencia')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('tipo_detalle_incidencia_id')->references('tipo_detalle_incidencia_id')->on('logistica.tipo_detalle_incidencia')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::create('logistica.historico_estado_incidencia', function (Blueprint $table) {
@@ -169,7 +167,7 @@ return new class extends Migration
             $table->string('mantenimiento_comentario');
             $table->date('mantenimiento_fecha_inicio');
             $table->date('mantenimiento_fecha_fin');
-            $table->integer('estado_detalle_mantenimiento_id');
+            $table->integer('estado_mantenimiento_id');
             $table->integer('tipo_mantenimiento_id');
             $table->uuid('proveedor_id')->nullable();
             $table->integer('tipo_elemento_id');
@@ -179,12 +177,28 @@ return new class extends Migration
             $table->uuid('unidad_id');
             $table->timestamps();
             $table->foreign('tipo_elemento_id')->references('tipo_elemento_id')->on('logistica.tipo_elemento')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('estado_detalle_mantenimiento_id')->references('estado_detalle_mantenimiento_id')->on('logistica.estado_detalle_mantenimiento')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('estado_mantenimiento_id')->references('estado_mantenimiento_id')->on('logistica.estado_mantenimiento')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('tipo_mantenimiento_id')->references('tipo_mantenimiento_id')->on('logistica.tipo_mantenimiento')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('unidad_id')->references('unidad_id')->on('unidades.unidad')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('espacio_id')->references('espacio_id')->on('unidades.espacio')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('piso_id')->references('piso_id')->on('unidades.piso')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('torre_id')->references('torre_id')->on('unidades.torre')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+        Schema::create('logistica.estado_detalle_mantenimiento', function (Blueprint $table) {
+            $table->bigIncrements('estado_detalle_mantenimiento_id');
+            $table->string('estado_detalle_mantenimiento_nombre');
+            $table->uuid('unidad_id');
+            $table->timestamps();
+            $table->foreign('unidad_id')->references('unidad_id')->on('unidades.unidad')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+        Schema::create('logistica.tipo_detalle_mantenimiento', function (Blueprint $table) {
+            $table->bigIncrements('tipo_detalle_mantenimiento_id');
+            $table->string('tipo_detalle_mantenimiento_nombre');
+            $table->uuid('unidad_id');
+            $table->timestamps();
+            $table->foreign('unidad_id')->references('unidad_id')->on('unidades.unidad')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::create('logistica.detalle_mantenimiento', function (Blueprint $table) {
@@ -202,10 +216,10 @@ return new class extends Migration
             $table->uuid('elemento_id')->nullable();
             $table->timestamps();
             $table->foreign('detalle_mantenimiento_moneda_monto')->references('monedas_id')->on('generico.monedas')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('mantenimiento_id')->references('mantenimiento_id')->on('logistica.incidencia')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('mantenimiento_id')->references('mantenimiento_id')->on('logistica.mantenimiento')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('tipo_elemento_id')->references('tipo_elemento_id')->on('logistica.tipo_elemento')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('estado_detalle_mantenimiento_id')->references('estado_detalle_mantenimiento_id')->on('logistica.estado_detalle_mantenimiento')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('tipo_detalle_mantenimiento_id')->references('tipo_detalle_mantenimiento_id')->on('logistica.tipo_detalle_mantenimiento')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('estado_detalle_mantenimiento_id')->references('estado_detalle_mantenimiento_id')->on('logistica.estado_detalle_mantenimiento')->onDelete('cascade')->onUpdate('cascade');
         });
 
     }

@@ -18,6 +18,9 @@ use App\Models\generico\Sectores;
 use App\Models\generico\Sexo;
 use App\Models\generico\TipoIdentificacion;
 use App\Models\unidades\TipoUnidad;
+use App\Models\unidades\EstadoUnidad;
+use App\Models\logistica\TipoActivo;
+use App\Models\logistica\EstadoActivo;
 
 class InicialSeeder extends Seeder
 {
@@ -7847,5 +7850,36 @@ class InicialSeeder extends Seeder
         foreach ($estado_unidades as $estado_unidad) {
             EstadoUnidad::create($estado_unidad);
         }
+    /*
+        $estado_activos = [
+            ['nombre_estado_activo' => 'ACTIVO'],
+            ['nombre_estado_activo' => 'INACTIVO'],
+            ['nombre_estado_activo' => 'DESHABILITADO'],
+            ['nombre_estado_activo' => 'EN MANTENIMIENTO'],
+            ['nombre_estado_activo' => 'DESINCORPORADO'],
+        ];
+
+        foreach ($estado_activos as $estado_activo) {
+            EstadoActivo::create($estado_activo);
+        }
+
+        $tipo_activos = [
+            ['nombre_tipo_activo' => 'TANGIBLE'],
+            ['nombre_tipo_activo' => 'INTANGIBLE'],
+        ];
+
+        foreach ($tipo_activos as $tipo_activo) {
+            TipoActivo::create($tipo_activo);
+        }
+
+        $tipo_elementos = [
+            ['nombre_tipo_elemento' => 'ACTIVO'],
+            ['nombre_tipo_elemento' => 'AREA'],
+        ];
+
+        foreach ($tipo_elementos as $tipo_elemento) {
+            TipoElemento::create($tipo_elemento);
+        }
+    */
     }
 }

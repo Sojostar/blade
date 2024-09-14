@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {/*
+    {
         Schema::create('unidades.tipo_unidad', function (Blueprint $table) {
             $table->bigIncrements('tipo_unidad_id');
             $table->string('nombre_tipo_unidad');
@@ -49,7 +49,7 @@ return new class extends Migration
             $table->foreign('unidad_ubicacion_municipio_id')->references('municipio_id')->on('generico.municipio')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('unidad_ubicacion_pais_id')->references('pais_id')->on('generico.pais')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('unidad_ubicacion_parroquia_id')->references('parroquia_id')->on('generico.parroquia')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('unidad_ubicacion_sector_id')->references('sector_id')->on('generico.sectores')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('unidad_ubicacion_sector_id')->references('sectores_id')->on('generico.sectores')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::create('unidades.torre', function (Blueprint $table) {
@@ -103,7 +103,7 @@ return new class extends Migration
             $table->uuid('piso_id');
             $table->uuid('torre_id');
             $table->uuid('unidad_id');
-            $table->integer('tipologia_espacio_id')->comment('especifica si el espacio es privado o publico');
+            $table->uuid('tipologia_espacio_id')->comment('especifica si el espacio es privado o publico');
             $table->timestamps();
             $table->foreign('piso_id')->references('piso_id')->on('unidades.piso')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('torre_id')->references('torre_id')->on('unidades.torre')->onDelete('cascade')->onUpdate('cascade');
@@ -121,7 +121,7 @@ return new class extends Migration
             $table->foreign('unidad_id')->references('unidad_id')->on('unidades.unidad')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('usuario_id')->references('id')->on('public.users')->onDelete('cascade')->onUpdate('cascade');
         });
-        */
+        
     }
 
     /**
