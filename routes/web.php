@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Generico\GenericoController;
 use App\Http\Controllers\Unidad\UnidadController;
+use App\Http\Controllers\Unidad\EspacioController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +16,7 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/propietarios', [PropietariosController::class, 'edit'])->name('propietarios.ver');
+    Route::get('/espacios', [EspacioController::class, 'index'])->name('espacios.ver');
 });
 
 Route::middleware('auth')->group(function () {

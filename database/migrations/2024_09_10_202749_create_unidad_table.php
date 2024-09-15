@@ -100,6 +100,7 @@ return new class extends Migration
             $table->string('espacio_nombre');
             $table->string('espacio_ubicacion')->nullable();
             $table->uuid('tipo_espacio_id');
+            $table->uuid('estado_espacio_id');
             $table->uuid('piso_id');
             $table->uuid('torre_id');
             $table->uuid('unidad_id');
@@ -109,6 +110,7 @@ return new class extends Migration
             $table->foreign('torre_id')->references('torre_id')->on('unidades.torre')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('unidad_id')->references('unidad_id')->on('unidades.unidad')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('tipo_espacio_id')->references('tipo_espacio_id')->on('unidades.tipo_espacio')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('estado_espacio_id')->references('estado_espacio_id')->on('unidades.estado_espacio')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('tipologia_espacio_id')->references('tipologia_espacio_id')->on('unidades.tipologia_espacio')->onDelete('cascade')->onUpdate('cascade');
         });
 
@@ -120,6 +122,16 @@ return new class extends Migration
             $table->unique(['unidad_id','usuario_id']);
             $table->foreign('unidad_id')->references('unidad_id')->on('unidades.unidad')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('usuario_id')->references('id')->on('public.users')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+        Schema::create('unidades.espacio_estado', function (Blueprint $table) {
+            $table->uuid('espacio_estado_id')->primary();
+            $table->string('espacio_estado');
+            $table->uuid('unidad_id');
+            $table->uuid('tipo_espacio_id');
+            $table->timestamps();
+            $table->foreign('unidad_id')->references('unidad_id')->on('unidades.unidad')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('tipo_espacio_id')->references('tipo_espacio_id')->on('unidades.tipo_espacio')->onDelete('cascade')->onUpdate('cascade');
         });
         
     }
