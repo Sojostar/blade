@@ -1,30 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <x-bladewind::avatar
-            image=https://bladewindui.com/assets/images/rowe.jpeg
-            class="ring-blue-200 ring-offset-2"
-            show_ring="true"
-            size="huge" />
-        <x-bladewind::avatar
-            image=https://bladewindui.com/assets/images/rowe.jpeg
-            class="ring-blue-200 ring-offset-2"
-            show_ring="true"
-            size="huge" />
-        <x-bladewind::avatar
-            image=https://bladewindui.com/assets/images/rowe.jpeg
-            class="ring-blue-200 ring-offset-2"
-            show_ring="true"
-            size="huge" />
-        <x-bladewind::avatar
-            image=https://bladewindui.com/assets/images/rowe.jpeg
-            class="ring-blue-200 ring-offset-2"
-            show_ring="true"
-            size="huge" />
-        <x-bladewind::avatar
-            image=https://bladewindui.com/assets/images/rowe.jpeg
-            class="ring-blue-200 ring-offset-2"
-            show_ring="true"
-            size="huge" />
+        <a data-tooltip="Apartamentos" data-position="top center">
+            <x-bladewind::button.circle size="big" outline="true" icon="home-modern" />
+        </a>
+        <a data-tooltip="Depositos" data-position="top center">
+            <x-bladewind::button.circle size="big" outline="true" icon="shopping-bag" />
+        </a>
+        <x-bladewind::button.circle size="big" outline="true" icon="home-modern" />
     </x-slot>
 
     <div class="py-12">
